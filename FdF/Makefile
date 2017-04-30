@@ -6,7 +6,7 @@
 #    By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 10:00:00 by kcosta            #+#    #+#              #
-#    Updated: 2017/04/30 10:56:25 by kcosta           ###   ########.fr        #
+#    Updated: 2017/04/30 13:01:29 by kcosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,10 @@ FLAGS			:= -Wall -Wextra -Werror -fsanitize=address
 # ============================== #
 
 # =========== Files ============ #
-SRCS_FILES		:=
-HEADERS_FILES	:=
+SRCS_FILES		:=	color.c			\
+					vector2.c
+HEADERS_FILES	:=	color.h			\
+					vector2.h
 # ============================== #
 
 # ========== Sources =========== #
