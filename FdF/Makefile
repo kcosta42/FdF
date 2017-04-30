@@ -6,7 +6,7 @@
 #    By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 10:00:00 by kcosta            #+#    #+#              #
-#    Updated: 2017/04/30 13:01:29 by kcosta           ###   ########.fr        #
+#    Updated: 2017/04/30 14:01:10 by kcosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,9 +35,11 @@ FLAGS			:= -Wall -Wextra -Werror -fsanitize=address
 
 # =========== Files ============ #
 SRCS_FILES		:=	color.c			\
-					vector2.c
+					vector2.c		\
+					vector3.c
 HEADERS_FILES	:=	color.h			\
-					vector2.h
+					vector2.h		\
+					vector3.h
 # ============================== #
 
 # ========== Sources =========== #
@@ -60,8 +62,8 @@ HEADERS			:= $(addprefix $(INCLUDES_PATH), $(HEADERS_FILES))
 LIBFT_PATH		:= libft/
 LIBFT_INCLUDES	:= -I libft/includes
 LIBFT			:= -L $(LIBFT_PATH) -lft
-MLX_PATH		:= minilibx_macos/
-MLX_INCLUDES	:= -I minilibx_macos/
+MLX_PATH		:= minilibx/
+MLX_INCLUDES	:= -I minilibx/
 MLX				:= -L $(MLX_PATH) -lmlx -framework OpenGL -framework AppKit
 MATH			:= -lm
 # ============================== #
