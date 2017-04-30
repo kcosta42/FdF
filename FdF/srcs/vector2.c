@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 12:35:36 by kcosta            #+#    #+#             */
-/*   Updated: 2017/04/30 14:01:47 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/04/30 14:06:28 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,8 @@ t_vector2		vector2_transform(t_vector2 vector, t_matrix transform)
 {
 	t_vector2	new;
 
-	new.x = (vector.x * tranform.m[0]) + (vector.y * transform.m[4]);
-	new.y = (vector.x * tranform.m[1]) + (vector.y * transform.m[5]);
+	new.x = (vector.x * transform.m[0]) + (vector.y * transform.m[4]);
+	new.y = (vector.x * transform.m[1]) + (vector.y * transform.m[5]);
 	return (new);
 }
 
