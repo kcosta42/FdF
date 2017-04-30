@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 12:35:18 by kcosta            #+#    #+#             */
-/*   Updated: 2017/04/30 12:59:45 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/04/30 14:02:01 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define VECTOR2_H
 
 # include <math.h>
+
+# include "matrix.h"
+
+typedef unsigned char	t_uchar;
 
 typedef struct	s_vector2
 {
@@ -24,7 +28,7 @@ typedef struct	s_vector2
 t_vector2		new_vector2(float x, float y);
 t_vector2		vector2_zero();
 
-t_uchar			vector2_equal(t_vector2 this, t_vector2 other);
+t_uchar			vector2_equals(t_vector2 this, t_vector2 other);
 
 t_vector2		vector2_add(t_vector2 this, t_vector2 other);
 t_vector2		vector2_sub(t_vector2 this, t_vector2 other);

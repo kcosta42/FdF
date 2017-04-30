@@ -6,12 +6,11 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 12:35:36 by kcosta            #+#    #+#             */
-/*   Updated: 2017/04/30 13:00:14 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/04/30 14:01:47 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector2.h"
-#include "matrix.h"
 
 t_vector2		new_vector2(float x, float y)
 {
@@ -58,7 +57,7 @@ t_vector2		vector2_scale(t_vector2 this, float scale)
 	return (new);
 }
 
-t_uchar			vector2_equal(t_vector2 this, t_vector2 other)
+t_uchar			vector2_equals(t_vector2 this, t_vector2 other)
 {
 	return (this.x == other.x && this.y == other.y);
 }
