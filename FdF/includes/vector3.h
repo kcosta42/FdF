@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 12:30:48 by kcosta            #+#    #+#             */
-/*   Updated: 2017/04/30 14:01:58 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/04/30 18:49:54 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define VECTOR3_H
 
 # include <math.h>
-
-# include "matrix.h"
 
 typedef unsigned char	t_uchar;
 
@@ -25,6 +23,8 @@ typedef struct	s_vector3
 	float		y;
 	float		z;
 }				t_vector3;
+
+# include "matrix.h"
 
 t_vector3		new_vector3(float x, float y, float z);
 t_vector3		vector3_zero();
