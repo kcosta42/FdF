@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 14:04:45 by kcosta            #+#    #+#             */
-/*   Updated: 2017/04/30 18:45:59 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/01 14:39:08 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,12 +128,12 @@ t_matrix		matrix_invert(t_matrix this)
 {
 	float		*l;
 
-	l = (float*)malloc(sizeof(float) * 39);
+	l = (float*)ft_memalloc(sizeof(float) * 39);
 	l = matrix_invert_1(l, this);
 	l = matrix_invert_2(l);
 	l = matrix_invert_3(l);
 	this = matrix_invert_4(l, this);
-	free(l);
+	ft_memdel((void**)&l);
 	return (this);
 }
 
@@ -351,7 +351,7 @@ t_matrix		matrix_lookat(t_vector3 eye, t_vector3 target, t_vector3 up)
 	e.x = -vector3_dot(xAxis, eye);
 	e.y = -vector3_dot(yAxis, eye);
 	e.z = -vector3_dot(zAxis, eye);
-	ft_memmove(matrix.m,(float[16]){
+	ft_memmove(matrix.m, (float[16]){
 					xAxis.x, yAxis.x, zAxis.x, 0,
 					xAxis.y, yAxis.y, zAxis.y, 0,
 					xAxis.z, yAxis.z, zAxis.z, 0,

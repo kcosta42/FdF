@@ -6,7 +6,7 @@
 #    By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 10:00:00 by kcosta            #+#    #+#              #
-#    Updated: 2017/04/30 15:03:03 by kcosta           ###   ########.fr        #
+#    Updated: 2017/05/01 15:04:48 by kcosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,18 +30,25 @@ NAME			:= fdf
 
 # ========== Standard ========== #
 CC				:= gcc
-FLAGS			:= -Wall -Wextra -Werror #-fsanitize=address
+FLAGS			:= -Wall -Wextra -Werror -g -fsanitize=address
 # ============================== #
 
 # =========== Files ============ #
 SRCS_FILES		:=	color.c			\
 					vector2.c		\
 					vector3.c		\
-					matrix.c
+					matrix.c		\
+					camera.c		\
+					mesh.c			\
+					render.c		\
+					fdf.c
 HEADERS_FILES	:=	color.h			\
 					vector2.h		\
 					vector3.h		\
-					matrix.h
+					matrix.h		\
+					camera.h		\
+					mesh.h			\
+					render.h
 # ============================== #
 
 # ========== Sources =========== #

@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 14:04:46 by kcosta            #+#    #+#             */
-/*   Updated: 2017/04/30 18:49:00 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/04/30 19:29:39 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define MATRIX_H
 
 # include <math.h>
-# include <stdlib.h>
 
 # include "libft.h"
 
