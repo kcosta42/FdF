@@ -6,24 +6,28 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 12:26:43 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/02 15:57:29 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/02 23:27:32 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLOR_H
 # define COLOR_H
 
+# include <math.h>
+
 typedef unsigned char	t_uchar;
 typedef unsigned int	t_uint;
 
 typedef struct	s_color
 {
-	t_uchar		r;
-	t_uchar		g;
-	t_uchar		b;
+	int			r;
+	int			g;
+	int			b;
 }				t_color;
 
-t_color			new_color(t_uchar r, t_uchar g, t_uchar b);
+float			clamp(float value, float min, float max);
+
+t_color			new_color(int r, int g, int b);
 t_color			new_color_value(t_uint rgb);
 
 t_color			color_add(t_color this, t_color other);

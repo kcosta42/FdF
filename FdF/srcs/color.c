@@ -6,19 +6,24 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 12:26:42 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/02 18:27:50 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/02 23:32:40 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "color.h"
 
-t_color 		new_color(t_uchar r, t_uchar g, t_uchar b)
+float			clamp(float value, float min, float max)
+{
+    return (fmax(min, fmin(value, max)));
+}
+
+t_color 		new_color(int r, int g, int b)
 {
 	t_color		color;
 
-	color.r = r;
-	color.g = g;
-	color.b = b;
+	color.r = clamp(r, 0, 255);
+	color.g = clamp(g, 0, 255);
+	color.b = clamp(b, 0, 255);
 	return (color);
 }
 

@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 21:23:11 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/02 20:47:18 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/02 23:54:43 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		run(void)
 
 	for (size_t i = 0; i < MAX_CUBE; i++)
 	{
-		mesh[i].rotation = new_vector3(mesh[i].rotation.x + 0.01f, mesh[i].rotation.y + 0.01f, mesh[i].rotation.z);
+		mesh[i].rotation = new_vector3(mesh[i].rotation.x + 0.05f, mesh[i].rotation.y + 0.05f, mesh[i].rotation.z);
 		render_mesh(render, camera, mesh[i]);
 	}
 

@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 19:35:32 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/02 21:01:39 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/02 23:27:28 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define VERTEX		1
 # define EDGE		2
 # define RASTERIZE	3
+# define Z_MAX		10000
 
 typedef unsigned int	t_uint;
 
@@ -47,14 +48,15 @@ typedef struct	s_render
 	float		width;
 	float		height;
 	char		name[2048];
+	float		*depthBuffer;
 	t_img		img;
 }				t_render;
 
-float			clamp(float value, float min, float max);
 float			interpolate(float min, float max, float gradient);
 void			swap_vertex(t_vertex *v1, t_vertex *v2);
 
 t_render		new_render(int mode, float width, float height, char *name);
+void			render_destroy(t_render *render);
 
 void			render_clear(t_render render);
 void			render_develop(t_render render);
