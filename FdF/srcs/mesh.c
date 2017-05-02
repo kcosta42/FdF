@@ -6,13 +6,22 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 19:25:43 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/01 16:29:00 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/02 21:25:46 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mesh.h"
 
-t_face			new_face(t_vector3 a, t_vector3 b, t_vector3 c)
+t_vertex		new_vertex(t_vector3 coord, t_color color)
+{
+	t_vertex	vertex;
+
+	vertex.coord = coord;
+	vertex.color = color;
+	return (vertex);
+}
+
+t_face			new_face(t_vertex a, t_vertex b, t_vertex c)
 {
 	t_face		face;
 
@@ -31,6 +40,36 @@ t_mesh			new_mesh(size_t size)
 	mesh.faces = (t_face*)ft_memalloc(sizeof(t_face) * size + 1);
 	mesh.size = size;
 	return (mesh);
+}
+
+t_edge			new_edge(t_vertex v1, t_vertex v2)
+{
+	t_edge		edge;
+
+	edge.v1 = (v1.coord.y < v2.coord.y) ? v1 : v2;
+	edge.v2 = (v1.coord.y < v2.coord.y) ? v2 : v1;
+	return (edge);
+}
+
+t_span			new_span(t_color color1, int x1, t_color color2, int x2)
+{
+	t_span		span;
+
+	if (x1 < x2)
+	{
+		span.color1 = color1;
+		span.x1 = x1;
+		span.color2 = color2;
+		span.x2 = x2;
+	}
+	else
+	{
+		span.color1 = color2;
+		span.x1 = x2;
+		span.color2 = color1;
+		span.x2  = x1;
+	}
+	return (span);
 }
 
 void			mesh_destroy(t_mesh *mesh)

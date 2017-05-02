@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 20:56:38 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/01 15:15:12 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/02 16:28:34 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,15 @@ void			camera_update_projection(t_camera *camera,
 		matrix_perspective_fov(fov, camera->width / camera->height, near, far);
 }
 
-t_vector2		camera_project(t_camera camera, t_vector3 coor, t_matrix m)
+t_vertex		camera_project(t_camera camera, t_vertex vertex, t_matrix m)
 {
-	t_vector2	new;
+	t_vertex	new;
 	t_vector3	point;
 
-	point = vector3_transform_coor(coor, m);
-	new.x = point.x * camera.width + camera.width / 2.0f;
-	new.y = -point.y * camera.height + camera.height / 2.0f;
+	point = vector3_transform_coor(vertex.coord, m);
+	new.coord.x = point.x * camera.width + camera.width / 2.0f;
+	new.coord.y = -point.y * camera.height + camera.height / 2.0f;
+	new.coord.z = point.z;
+	new.color = vertex.color;
 	return (new);
 }

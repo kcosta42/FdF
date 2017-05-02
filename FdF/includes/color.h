@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 12:26:43 by kcosta            #+#    #+#             */
-/*   Updated: 2017/04/30 19:42:32 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/02 15:57:29 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,23 @@
 # define COLOR_H
 
 typedef unsigned char	t_uchar;
+typedef unsigned int	t_uint;
 
-typedef struct		s_color
+typedef struct	s_color
 {
-	t_uchar			r;
-	t_uchar			g;
-	t_uchar			b;
-}					t_color;
+	t_uchar		r;
+	t_uchar		g;
+	t_uchar		b;
+}				t_color;
 
-t_color				new_color(t_uchar r, t_uchar g, t_uchar b);
-unsigned int		get_color(t_color color);
+t_color			new_color(t_uchar r, t_uchar g, t_uchar b);
+t_color			new_color_value(t_uint rgb);
+
+t_color			color_add(t_color this, t_color other);
+t_color			color_sub(t_color this, t_color other);
+t_color			color_mult(t_color this, float factor);
+t_color			color_lerp(t_color start, t_color end, float f);
+
+t_uint			get_color(t_color color);
 
 #endif
