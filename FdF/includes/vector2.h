@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 12:35:18 by kcosta            #+#    #+#             */
-/*   Updated: 2017/04/30 14:02:01 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/03 12:39:18 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct	s_vector2
 }				t_vector2;
 
 t_vector2		new_vector2(float x, float y);
-t_vector2		vector2_zero();
+t_vector2		vector2_zero(void);
 
 t_uchar			vector2_equals(t_vector2 this, t_vector2 other);
 

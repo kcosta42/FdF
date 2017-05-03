@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 20:56:38 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/02 16:28:34 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/03 14:24:22 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,23 @@ t_camera		new_camera(float width, float height)
 	camera.target = vector3_zero();
 	camera.width = width;
 	camera.height = height;
-	camera.viewMatrix = 
+	camera.view_matrix =
 				matrix_lookat(camera.position, camera.target, vector3_up());
-	camera.projectionMatrix =
+	camera.projection_matrix =
 				matrix_perspective_fov(0.78, width / height, 0.01, 1.0);
 	return (camera);
 }
 
 void			camera_update_view(t_camera *camera)
 {
-	camera->viewMatrix = 
+	camera->view_matrix =
 				matrix_lookat(camera->position, camera->target, vector3_up());
 }
 
 void			camera_update_projection(t_camera *camera,
 											float fov, float near, float far)
 {
-	camera->projectionMatrix =
+	camera->projection_matrix =
 		matrix_perspective_fov(fov, camera->width / camera->height, near, far);
 }
 

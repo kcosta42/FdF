@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 12:30:48 by kcosta            #+#    #+#             */
-/*   Updated: 2017/04/30 18:49:54 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/03 12:53:12 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 # include <math.h>
 
+# include "matrix.h"
+
 typedef unsigned char	t_uchar;
+typedef struct s_matrix	t_matrix;
 
 typedef struct	s_vector3
 {
@@ -24,11 +27,9 @@ typedef struct	s_vector3
 	float		z;
 }				t_vector3;
 
-# include "matrix.h"
-
 t_vector3		new_vector3(float x, float y, float z);
-t_vector3		vector3_zero();
-t_vector3		vector3_up();
+t_vector3		vector3_zero(void);
+t_vector3		vector3_up(void);
 
 t_uchar			vector3_equals(t_vector3 this, t_vector3 other);
 

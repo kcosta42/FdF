@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 14:04:46 by kcosta            #+#    #+#             */
-/*   Updated: 2017/04/30 19:29:39 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/03 13:00:14 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 # include <math.h>
 
 # include "libft.h"
+# include "vector3.h"
 
-typedef unsigned char	t_uchar;
+typedef unsigned char		t_uchar;
+typedef struct s_vector3	t_vector3;
 
 typedef struct	s_matrix
 {
 	float		m[16];
 }				t_matrix;
 
-# include "vector3.h"
-
-t_matrix		matrix_identity();
-t_matrix		matrix_zero();
+t_matrix		matrix_identity(void);
+t_matrix		matrix_zero(void);
 t_matrix		matrix_rotation_x(float angle);
 t_matrix		matrix_rotation_y(float angle);
 t_matrix		matrix_rotation_z(float angle);

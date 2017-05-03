@@ -1,95 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector2.c                                          :+:      :+:    :+:   */
+/*   vector2_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/30 12:35:36 by kcosta            #+#    #+#             */
-/*   Updated: 2017/04/30 14:06:28 by kcosta           ###   ########.fr       */
+/*   Created: 2017/05/03 12:40:27 by kcosta            #+#    #+#             */
+/*   Updated: 2017/05/03 12:40:37 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector2.h"
-
-t_vector2		new_vector2(float x, float y)
-{
-	t_vector2	vector2;
-
-	vector2.x = x;
-	vector2.y = y;
-	return (vector2);
-}
-
-t_vector2		vector2_add(t_vector2 this, t_vector2 other)
-{
-	t_vector2	new;
-
-	new.x = this.x + other.x;
-	new.y = this.y + other.y;
-	return (new);
-}
-
-t_vector2		vector2_sub(t_vector2 this, t_vector2 other)
-{
-	t_vector2	new;
-
-	new.x = this.x - other.x;
-	new.y = this.y - other.y;
-	return (new);
-}
-
-t_vector2		vector2_negate(t_vector2 this)
-{
-	t_vector2	new;
-
-	new.x = -this.x;
-	new.y = -this.y;
-	return (new);
-}
-
-t_vector2		vector2_scale(t_vector2 this, float scale)
-{
-	t_vector2	new;
-
-	new.x = this.x * scale;
-	new.y = this.y * scale;
-	return (new);
-}
-
-t_uchar			vector2_equals(t_vector2 this, t_vector2 other)
-{
-	return (this.x == other.x && this.y == other.y);
-}
-
-float			vector2_length(t_vector2 this)
-{
-	return (sqrt(this.x * this.x + this.y * this.y));
-}
-
-float			vector2_lengthsqr(t_vector2 this)
-{
-	return (this.x * this.x + this.y * this.y);
-}
-
-t_vector2		vector2_normalize(t_vector2 this)
-{
-	float		len;
-	float		num;
-
-	len = vector2_length(this);
-	if (len == 0)
-		return (this);
-	num = 1.0 / len;
-	this.x *= num;
-	this.y *= num;
-	return (this);
-}
-
-t_vector2		vector2_zero()
-{
-	return (new_vector2(0, 0));
-}
 
 t_vector2		vector2_minimize(t_vector2 left, t_vector2 right)
 {

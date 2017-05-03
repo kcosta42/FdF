@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tabdel.c                                        :+:      :+:    :+:   */
+/*   ft_math.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/18 15:15:13 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/03 14:21:56 by kcosta           ###   ########.fr       */
+/*   Created: 2017/05/03 11:56:57 by kcosta            #+#    #+#             */
+/*   Updated: 2017/05/03 13:12:20 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_tab.h"
-#include "ft_string.h"
+#include "ft_math.h"
 
-void		ft_tabdel(char ***tab)
+float			clamp(float value, float min, float max)
 {
-	int		i;
+	return (fmax(min, fmin(value, max)));
+}
 
-	i = 0;
-	while ((*tab)[i])
-	{
-		ft_strdel(&((*tab)[i]));
-		i++;
-	}
-	ft_strdel((char**)tab);
+float			interpolate(float min, float max, float gradient)
+{
+	return (min + (max - min) * clamp(gradient, 0, 1));
 }

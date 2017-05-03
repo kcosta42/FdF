@@ -6,7 +6,7 @@
 #    By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 10:00:00 by kcosta            #+#    #+#              #
-#    Updated: 2017/05/01 15:04:48 by kcosta           ###   ########.fr        #
+#    Updated: 2017/05/03 14:22:25 by kcosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,15 +34,29 @@ FLAGS			:= -Wall -Wextra -Werror -g -fsanitize=address
 # ============================== #
 
 # =========== Files ============ #
-SRCS_FILES		:=	color.c			\
-					vector2.c		\
-					vector3.c		\
-					matrix.c		\
+SRCS_FILES		:=	ft_math.c		\
+					color_0.c		\
+					color_1.c		\
+					vector2_0.c		\
+					vector2_1.c		\
+					vector2_2.c		\
+					vector3_0.c		\
+					vector3_1.c		\
+					vector3_2.c		\
+					vector3_3.c		\
+					matrix_0.c		\
+					matrix_1.c		\
+					matrix_2.c		\
+					matrix_3.c		\
+					matrix_4.c		\
 					camera.c		\
 					mesh.c			\
-					render.c		\
+					render_0.c		\
+					render_1.c		\
+					render_2.c		\
 					fdf.c
-HEADERS_FILES	:=	color.h			\
+HEADERS_FILES	:=	ft_math.h		\
+					color.h			\
 					vector2.h		\
 					vector3.h		\
 					matrix.h		\
@@ -87,7 +101,7 @@ mlx:
 libft:
 	@make -C $(LIBFT_PATH)
 
-$(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(HEADERS)
+$(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(HEADERS) $(LIBFT_PATH)/libft.a
 	@mkdir $(OBJS_PATH) 2> /dev/null || true
 	$(CC) $(FLAGS) $(INCLUDES) $(LIBFT_INCLUDES) $(MLX_INCLUDES) -o $@ -c $<
 

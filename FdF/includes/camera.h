@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 19:22:45 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/02 16:27:59 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/03 14:24:13 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ typedef struct	s_camera
 {
 	t_vector3	position;
 	t_vector3	target;
-	t_matrix	viewMatrix;
-	t_matrix	projectionMatrix;
+	t_matrix	view_matrix;
+	t_matrix	projection_matrix;
 	float		width;
 	float		height;
 }				t_camera;

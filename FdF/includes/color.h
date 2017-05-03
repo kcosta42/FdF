@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 12:26:43 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/02 23:27:32 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/03 11:58:39 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define COLOR_H
 
 # include <math.h>
+
+# include "ft_math.h"
 
 typedef unsigned char	t_uchar;
 typedef unsigned int	t_uint;
