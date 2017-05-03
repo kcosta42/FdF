@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 13:14:55 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/03 14:25:28 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/03 18:40:32 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,11 @@ void			render_edge(t_render render, t_vertex start, t_vertex end)
 	}
 }
 
+/*
+** Need to investigate why render_vertex dont get clean with mode VERTEX
+** Instead i will use render_edge width v1 = v2 to draw a point
+*/
+
 void			render_face(t_render r, t_camera c, t_face face, t_matrix tm)
 {
 	face.a = camera_project(c, face.a, tm);
@@ -86,9 +91,9 @@ void			render_face(t_render r, t_camera c, t_face face, t_matrix tm)
 		swap_vertex(&(face.a), &(face.b));
 	if (r.mode == VERTEX)
 	{
-		render_vertex(r, face.a);
-		render_vertex(r, face.b);
-		render_vertex(r, face.c);
+		render_edge(r, face.a, face.a);
+		render_edge(r, face.b, face.b);
+		render_edge(r, face.c, face.c);
 	}
 	else if (r.mode == EDGE)
 	{

@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 12:30:48 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/03 12:53:12 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/03 17:43:28 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ t_vector3		vector3_normalize(t_vector3 this);
 t_vector3		vector3_transform_coor(t_vector3 vector, t_matrix transform);
 t_vector3		vector3_transform_norm(t_vector3 vector, t_matrix transform);
 t_vector3		vector3_cross(t_vector3 left, t_vector3 right);
+t_vector3		vector3_minimize(t_vector3 left, t_vector3 right);
+t_vector3		vector3_maximize(t_vector3 left, t_vector3 right);
 
 float			vector3_length(t_vector3 this);
 float			vector3_lengthsqr(t_vector3 this);

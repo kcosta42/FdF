@@ -6,11 +6,11 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 21:23:11 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/03 14:05:05 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/03 19:48:11 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
+#include "fdf.h"
 
 #define MAX_CUBE 1
 
@@ -48,28 +48,36 @@ t_mesh	init_cube(float value)
 	return (cube);
 }
 
+t_mesh	wireframe;
 int		run(void)
 {
     render_clear(render);
 
-	for (size_t i = 0; i < MAX_CUBE; i++)
+	/*for (size_t i = 0; i < MAX_CUBE; i++)
 	{
+		mesh[i].position = new_vector3(10, 10, 0.0f);
 		mesh[i].rotation = new_vector3(mesh[i].rotation.x + 0.05f, mesh[i].rotation.y + 0.05f, mesh[i].rotation.z);
 		render_mesh(render, camera, mesh[i]);
-	}
+	}*/
+	wireframe.rotation = new_vector3(wireframe.rotation.x + 0.05f, wireframe.rotation.y + 0.05f, wireframe.rotation.z);
+	render_mesh(render, camera, wireframe);
 
     render_develop(render);
 	return (0);
 }
 
-int		main(void)
+int		main(int argc, char **argv)
 {
-	render = new_render(RASTERIZE, 640, 480, "FdF");
+	if (argc != 2)
+		return (0);
+	read_file(argv[1], &wireframe);
+	render = new_render(EDGE, 640, 480, "FdF");
 	camera = new_camera(640, 480);
 	float value = 1;
 	for (size_t i = 0; i < MAX_CUBE; i++, value += 0.25)
 		mesh[i] = init_cube(value);
 	camera.position = new_vector3(0, 0, 10.0f);
+	camera.target = wireframe.position;
 	camera_update_view(&camera);
 	run();
 	mlx_key_hook(render.win_ptr, &run, NULL);

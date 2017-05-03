@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 19:24:11 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/03 13:12:14 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/03 17:37:16 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft.h"
 
 # include "vector3.h"
+# include "matrix.h"
 # include "color.h"
 
 typedef struct	s_vertex
