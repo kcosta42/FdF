@@ -6,80 +6,97 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 21:23:11 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/03 19:48:11 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/15 15:04:37 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-#define MAX_CUBE 1
-
-t_render	render;
-t_camera	camera;
-t_mesh		mesh[MAX_CUBE];
-
-t_mesh	init_cube(float value)
+static t_vector3	manage_rotation(int keycode, t_vector3 base)
 {
-	t_mesh cube = new_mesh(12);
+	t_vector3	new;
 
-	t_vertex a = new_vertex(new_vector3(-value, value, value), new_color(255, 0, 0));
-	t_vertex b = new_vertex(new_vector3(value, value, value), new_color(0, 255, 0));
-	t_vertex c = new_vertex(new_vector3(-value, -value, value), new_color(0, 0, 255));
-	t_vertex d = new_vertex(new_vector3(value, -value, value), new_color(255, 0, 0));
-	t_vertex e = new_vertex(new_vector3(-value, value, -value), new_color(0, 255, 0));
-	t_vertex f = new_vertex(new_vector3(value, value, -value), new_color(0, 0, 255));
-	t_vertex g = new_vertex(new_vector3(value, -value, -value), new_color(0, 255, 0));
-	t_vertex h = new_vertex(new_vector3(-value, -value, -value), new_color(255, 0, 0));
-
-	cube.faces[0] = new_face(a, b, c);
-	cube.faces[1] = new_face(b, c, d);
-	cube.faces[2] = new_face(b, d, g);
-	cube.faces[3] = new_face(b, f, g);
-	cube.faces[4] = new_face(a, b, e);
-	cube.faces[5] = new_face(b, e, f);
-
-	cube.faces[6] = new_face(c, d, h);
-	cube.faces[7] = new_face(d, g, h);
-	cube.faces[8] = new_face(a, c, h);
-	cube.faces[9] = new_face(a, e, h);
-	cube.faces[10] = new_face(e, f, g);
-	cube.faces[11] = new_face(e, g, h);
-
-	return (cube);
+	new = base;
+	if (keycode == KEY_J)
+		new = new_vector3(new.x, new.y + 0.05f, new.z);
+	else if (keycode == KEY_I)
+		new = new_vector3(new.x - 0.05f, new.y, new.z);
+	else if (keycode == KEY_L)
+		new = new_vector3(new.x, new.y - 0.05f, new.z);
+	else if (keycode == KEY_K)
+		new = new_vector3(new.x + 0.05f, new.y, new.z);
+	else if (keycode == KEY_O)
+		new = new_vector3(new.x, new.y, new.z - 0.05f);
+	else if (keycode == KEY_P)
+		new = new_vector3(new.x, new.y, new.z + 0.05f);
+	return (new);
 }
 
-t_mesh	wireframe;
-int		run(void)
+static t_vector3	manage_translation(int keycode, t_vector3 base)
 {
-    render_clear(render);
+	t_vector3	new;
 
-	/*for (size_t i = 0; i < MAX_CUBE; i++)
-	{
-		mesh[i].position = new_vector3(10, 10, 0.0f);
-		mesh[i].rotation = new_vector3(mesh[i].rotation.x + 0.05f, mesh[i].rotation.y + 0.05f, mesh[i].rotation.z);
-		render_mesh(render, camera, mesh[i]);
-	}*/
-	wireframe.rotation = new_vector3(wireframe.rotation.x + 0.05f, wireframe.rotation.y + 0.05f, wireframe.rotation.z);
-	render_mesh(render, camera, wireframe);
+	new = base;
+	if (keycode == KEY_W)
+		new = new_vector3(new.x, new.y + 0.25f, new.z);
+	else if (keycode == KEY_D)
+		new = new_vector3(new.x - 0.25f, new.y, new.z);
+	else if (keycode == KEY_S)
+		new = new_vector3(new.x, new.y - 0.25f, new.z);
+	else if (keycode == KEY_A)
+		new = new_vector3(new.x + 0.25f, new.y, new.z);
+	else if (keycode == KEY_MINUS)
+		new = new_vector3(new.x, new.y, new.z - 1.0f);
+	else if (keycode == KEY_PLUS)
+		new = new_vector3(new.x, new.y, new.z + 1.0f);
+	return (new);
+}
 
-    render_develop(render);
+static int			run(int keycode, t_param *param)
+{
+	render_clear(param->render);
+	if (keycode == KEY_ESCAPE)
+		exit(0);
+	else if (keycode == KEY_F1)
+		param->render.mode = EDGE;
+	else if (keycode == KEY_F2)
+		param->render.mode = RASTERIZE;
+	param->mesh.position = manage_translation(keycode, param->mesh.position);
+	param->mesh.rotation = manage_rotation(keycode, param->mesh.rotation);
+	render_mesh(param->render, param->camera, param->mesh);
+	render_develop(param->render);
 	return (0);
 }
 
-int		main(int argc, char **argv)
+static t_uchar		ft_check_ext(char *filename)
 {
+	char			*extension;
+
+	extension = ft_strrchr(filename, '.');
+	if (!extension)
+		return (1);
+	if (ft_strcmp(extension, ".fdf"))
+		return (2);
+	return (0);
+}
+
+int					main(int argc, char **argv)
+{
+	t_param		param;
+
 	if (argc != 2)
-		return (0);
-	read_file(argv[1], &wireframe);
-	render = new_render(EDGE, 640, 480, "FdF");
-	camera = new_camera(640, 480);
-	float value = 1;
-	for (size_t i = 0; i < MAX_CUBE; i++, value += 0.25)
-		mesh[i] = init_cube(value);
-	camera.position = new_vector3(0, 0, 10.0f);
-	camera.target = wireframe.position;
-	camera_update_view(&camera);
-	run();
-	mlx_key_hook(render.win_ptr, &run, NULL);
-	mlx_loop(render.mlx_ptr);
+		return (1);
+	if (ft_check_ext(argv[1]))
+		return (2);
+	if (read_file(argv[1], &(param.mesh)))
+		return (3);
+	param.render = new_render(EDGE, WIDTH, HEIGHT, "FdF");
+	param.camera = new_camera(WIDTH, HEIGHT);
+	param.camera.position = new_vector3(0, 0, 0);
+	param.camera.target = param.mesh.position;
+	camera_update_view(&(param.camera));
+	run(0, &param);
+	mlx_key_hook(param.render.win_ptr, &run, &param);
+	mlx_loop(param.render.mlx_ptr);
+	return (0);
 }

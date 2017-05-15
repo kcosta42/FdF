@@ -6,7 +6,7 @@
 #    By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 10:00:00 by kcosta            #+#    #+#              #
-#    Updated: 2017/05/03 17:43:43 by kcosta           ###   ########.fr        #
+#    Updated: 2017/05/15 15:12:55 by kcosta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ NAME			:= fdf
 
 # ========== Standard ========== #
 CC				:= gcc
-FLAGS			:= -Wall -Wextra -Werror -g #-O3#-fsanitize=address
+FLAGS			:= -Wall -Wextra -Werror -O3#-fsanitize=address
 # ============================== #
 
 # =========== Files ============ #
@@ -56,6 +56,8 @@ SRCS_FILES		:=	ft_math.c		\
 					render_1.c		\
 					render_2.c		\
 					fdf_parser.c	\
+					fdf_utils.c		\
+					fdf_mesh.c		\
 					fdf.c
 HEADERS_FILES	:=	ft_math.h		\
 					color.h			\

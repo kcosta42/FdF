@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 13:14:55 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/03 18:40:32 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/15 15:00:51 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,10 @@ void			render_edge(t_render render, t_vertex start, t_vertex end)
 	t_vector2	delta;
 	t_vector2	err;
 
-	v0 = (t_vector3){(int)start.coord.x, (int)start.coord.y, start.coord.z};
-	v1 = (t_vector3){(int)end.coord.x, (int)end.coord.y, start.coord.z};
+	v0 = (t_vector3){(int)clamp(start.coord.x, 0, render.width),
+		(int)clamp(start.coord.y, 0, render.height), start.coord.z};
+	v1 = (t_vector3){(int)clamp(end.coord.x, 0, render.width),
+		(int)clamp(end.coord.y, 0, render.height), start.coord.z};
 	delta = (t_vector2){fabs(v1.x - v0.x), fabs(v1.y - v0.y)};
 	step = (t_vector3){(v0.x < v1.x) ? 1 : -1, (v0.y < v1.y) ? 1 : -1,
 		(v1.z - v0.z) / (fmax(delta.x, delta.y) ? fmax(delta.x, delta.y) : 1)};
@@ -75,7 +77,7 @@ void			render_edge(t_render render, t_vertex start, t_vertex end)
 
 /*
 ** Need to investigate why render_vertex dont get clean with mode VERTEX
-** Instead i will use render_edge width v1 = v2 to draw a point
+** Instead i will use render_edge with v1 = v2 to draw a point
 */
 
 void			render_face(t_render r, t_camera c, t_face face, t_matrix tm)

@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 17:13:35 by kcosta            #+#    #+#             */
-/*   Updated: 2016/12/03 11:11:38 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/15 15:33:35 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # endif
 
 # ifndef BUFF_SIZE
-#  define BUFF_SIZE 1024
+#  define BUFF_SIZE 2048
 # endif
 
 # include <unistd.h>
