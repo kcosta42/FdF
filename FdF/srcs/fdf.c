@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/30 21:23:11 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/15 15:04:37 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/25 13:24:50 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int					main(int argc, char **argv)
 		return (3);
 	param.render = new_render(EDGE, WIDTH, HEIGHT, "FdF");
 	param.camera = new_camera(WIDTH, HEIGHT);
-	param.camera.position = new_vector3(0, 0, 0);
+	param.camera.position = new_vector3(0, 0, 10.0f);
 	param.camera.target = param.mesh.position;
 	camera_update_view(&(param.camera));
 	run(0, &param);

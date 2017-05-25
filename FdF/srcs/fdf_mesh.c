@@ -6,7 +6,7 @@
 /*   By: kcosta <kcosta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 15:10:22 by kcosta            #+#    #+#             */
-/*   Updated: 2017/05/15 15:15:51 by kcosta           ###   ########.fr       */
+/*   Updated: 2017/05/25 13:25:30 by kcosta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,6 @@ t_mesh			init_wireframe(t_list *faces, t_vector3 *bound)
 		ft_memmove(&(wireframe.faces[index]), faces->content, sizeof(t_face));
 	}
 	wireframe.position = new_vector3(0, 0, -(bound[0].x + bound[0].y + 10));
-	wireframe.rotation = new_vector3(-15 * M_PI / 180, 15 * M_PI / 180, M_PI);
+	wireframe.rotation = new_vector3(-0.25f, 0, M_PI + 0.75f);
 	return (wireframe);
 }
