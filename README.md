@@ -1,15 +1,23 @@
 FdF
 ===
 
+Disclaimer
+----------
+> In School 42, almost every project must be written according to a coding syntax standard (also known as "[Norme](./docs/norme.fr.pdf)").
+>
+> That's why some parts may be strange
+
 About
 -----
+>Now let's discover something more exciting: how to open a graphic window and draw in? To begin your journey in the country of graphic programming, FdF proposes to represent the mesh in "wire of a field" in 3D.
 
->This is the first project in the Computer Graphic branch.
+This is the first project in the Computer Graphic branch at School 42 Paris.
+
 The goal is to generate a wireframe model from a set of vertex.
 
 Here's how it looks like:
 
-![42](https://raw.githubusercontent.com/kcosta42/FdF/master/images/42.png)
+![42](./images/42.png)
 
 *Kind of cool isn't it ?*
 
@@ -56,8 +64,3 @@ Usage
     * `A`, `D` : Translate along the X-axis
     * `W`, `S` : Translate along the Y-axis
     * `+`, `-` : Translate along the Z-axis (Numerical Pad)
-
-Licence
--------
-
-#### Do what you want.
